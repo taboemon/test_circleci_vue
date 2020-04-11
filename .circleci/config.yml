@@ -64,15 +64,15 @@ jobs:
           command: npm run test:unit
       - save_npm
 
-  firebase-tools:
-    executor:
-      name: default
-    steps:
-      - checkout
-      - restore_npm
-      - run:
-          name: Install Firebase-tools
-          command: yarn add --dev firebase-tools
+  # firebase-tools:
+  #   executor:
+  #     name: default
+  #   steps:
+  #     - checkout
+  #     - restore_npm
+  #     - run:
+  #         name: Install Firebase-tools
+  #         command: yarn add --dev firebase-tools
 
   firebase-deploy:
     # deploy:
@@ -103,10 +103,10 @@ workflows:
           requires:
             - build
 
-      - firebase-tools:
-          requires:
-            - test
+      # - firebase-tools:
+      #     requires:
+      #       - test
 
       - firebase-deploy:
           requires:
-            - firebase-tools
+            - test
