@@ -76,7 +76,7 @@ jobs:
 
   firebase-deploy:
     # deploy:
-    # 　　 branch: master
+    # 　　 branch: master 
     executor:
       name: default
     steps:
