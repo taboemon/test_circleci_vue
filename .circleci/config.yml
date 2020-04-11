@@ -75,6 +75,8 @@ jobs:
           command: yarn add --dev firebase-tools
 
   firebase-deploy:
+    # deploy:
+    # 　　 branch: master
     executor:
       name: default
     steps:
