@@ -83,6 +83,9 @@ jobs:
       - checkout
       - restore_npm
       - run: 
+          name: Build
+          command: npm run build
+      - run: 
           name: Deploy to Firebase hosting
           command: yarn run firebase deploy --project "$FIREBASE_PROJECT_ID" --token "$FIREBASE_DEPLOY_TOKEN"
 
