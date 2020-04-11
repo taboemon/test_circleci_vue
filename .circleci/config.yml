@@ -28,7 +28,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: cd circleci_test/npm install
+          command: npm install
       - save_npm
 
   lint:
