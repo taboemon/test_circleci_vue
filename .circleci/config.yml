@@ -64,6 +64,26 @@ jobs:
           command: npm run test:unit
       - save_npm
 
+  firebase-tools:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - restore_npm
+      - run:
+          name: Install Firebase-tools
+          command: yarn add --dev firebase-tools
+
+  firebase-deploy:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - restore_npm
+      - run: 
+          name: Deploy to Firebase hosting
+          command: yarn run firebase deploy --project "$FIREBASE_PROJECT_ID" --token "$FIREBASE_DEPLOY_TOKEN"
+
 workflows:
   pull-request:
     jobs:
@@ -77,3 +97,11 @@ workflows:
       - test:
           requires:
             - build
+
+      - firebase-tools:
+          requires:
+            - test
+
+      - firebase-deploy:
+          requires:
+            - firebase-tools
