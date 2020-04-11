@@ -23,7 +23,7 @@ commands:
 jobs:
   setup:
     executor:
-      name: default
+      name: default 
     steps:
       - checkout
       - run:
@@ -76,7 +76,7 @@ jobs:
 
   firebase-deploy:
     # deploy:
-    # 　　 branch: master 
+    # 　　 branch: master
     executor:
       name: default
     steps:
