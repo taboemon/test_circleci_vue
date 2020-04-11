@@ -1,7 +1,7 @@
 version: 2.1
 executors:
   default:
-    working_directory: ~/workspace
+    working_directory: ~/workspace/circleci-test
     docker:
       - image: node:12
 
@@ -77,4 +77,3 @@ workflows:
       - test:
           requires:
             - build
-            
