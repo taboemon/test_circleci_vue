@@ -1,7 +1,7 @@
 version: 2.1
 executors:
   default:
-    working_directory: ~/workspace/circleci-test
+    working_directory: ~/workspace
     docker:
       - image: node:12
 
@@ -28,7 +28,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm install
+          command: cd circleci_test/npm install
       - save_npm
 
   lint:
@@ -39,7 +39,7 @@ jobs:
       - restore_npm
       - run: 
           name: Lint
-          command: npm run lint
+          command: cd circleci_test/npm run lint
       - save_npm
 
   build:
@@ -50,7 +50,7 @@ jobs:
       - restore_npm
       - run: 
           name: Build
-          command: npm run build
+          command: cd circleci_test/npm run build
       - save_npm
 
   test:
@@ -61,7 +61,7 @@ jobs:
       - restore_npm
       - run: 
           name: Test
-          command: npm run test:unit
+          command: cd circleci_test/npm run test:unit
       - save_npm
 
 workflows:
