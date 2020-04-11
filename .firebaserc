@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "circleci-test-firebase-e4f3c"
+    "default": "circleci-test-firebase-e4f3c",
+    "test_circleci": "circleci-test-firebase-e4f3c"
   }
 }
